@@ -22,7 +22,11 @@
 
   <body>
 
-    <div id='body'><%= render :partial => 'layouts/body' %></div>
+    <div class="container">
+      <div class='row'><%= render :partial => 'layouts/header' %></div>
+      <div class='row'><%= render :partial => 'layouts/body' %></div>
+      <div class='row'><%= render :partial => 'layouts/footer' %></div>
+    </div>
 
     <script src="/js/d3.v3.min.js"></script>
     <script src="/js/topojson.v1.min.js"></script>
