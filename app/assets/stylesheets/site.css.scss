@@ -1,3 +1,90 @@
 // Place all the styles related to the Site controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  fill: none;
+  pointer-events: all;
+}
+
+.subunit.SCT { fill: #ddc; }
+.subunit.WLS { fill: #cdd; }
+.subunit.NIR { fill: #cdc; }
+.subunit.ENG { fill: #dcd; }
+
+.subunit.IRL,
+.subunit-label.IRL {
+  display: none;
+}
+
+.subunit-boundary {
+  fill: none;
+  stroke: #777;
+  stroke-dasharray: 2,2;
+  stroke-linejoin: round;
+}
+
+.county-boundary {
+  fill: none;
+  stroke: steelblue;
+  stroke-linejoin: round;
+  stroke-width: 2.5px;
+}
+
+.wards {
+  fill: white;
+  stroke: black;
+  stroke-width: 0.05px;
+}
+
+.wards.active {
+  fill: orange;
+}
+
+.wards.selected {
+  fill: red;
+}
+
+.motorways {
+  fill: none;
+  stroke: steelblue;
+  stroke-linejoin: round;
+  stroke-width: 2.5px;
+}
+
+.primary_roads {
+  fill: none;
+  stroke: red;
+  stroke-linejoin: round;
+  stroke-width: 2.5px;
+}
+
+.subunit-boundary.IRL {
+  stroke: #aaa;
+}
+
+.subunit-label {
+  fill: #777;
+  fill-opacity: .5;
+  font-size: 20px;
+  font-weight: 300;
+  text-anchor: middle;
+}
+
+.place,
+.place-label {
+  fill: #444;
+}
+
+text {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  pointer-events: none;
+}
+
+.brush .extent {
+  stroke: #000;
+  stroke-width: 1.5px;
+  fill: #000;
+  fill-opacity: 0.3;
+}

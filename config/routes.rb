@@ -3,7 +3,7 @@ Censusview::Application.routes.draw do
 
   resources :census_counts
 
-  root :to => 'census_counts#index'
+  root :to => 'site#index'
 
 
   # The priority is based upon order of creation:
