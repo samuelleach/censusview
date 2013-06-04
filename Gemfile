@@ -1,11 +1,20 @@
 source 'https://rubygems.org'
 
+#ruby '1.9.3'
+ruby '2.0.0'
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'guard-rspec'
+  # gem 'genghis'
+end
 
 
 # Gems used only for assets and not required
@@ -18,9 +27,20 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
+  # gem 'compass-rails'
+  gem 'zurb-foundation'
 end
 
 gem 'jquery-rails'
+
+gem 'mongoid'
+gem 'resque'
+gem 'rabl'
+gem 'oj'
+gem 'nokogiri'
+gem 'httparty'
+gem 'newrelic_rpm'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
