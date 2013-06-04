@@ -1,4 +1,9 @@
 Censusview::Application.routes.draw do
+  resources :census_counts
+
+  root :to => 'census_counts#index'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
