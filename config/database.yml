@@ -15,9 +15,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: censusview_development
+  database: postgres
   pool: 5
-  username: censusview
+  username: leach
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
