@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  area_id: MyString
+  male: 1
+  female: 1
+  totpop: 1
+  tot16to74: 1
+  totadult: 1
+  totemploy: 1
+
+two:
+  area_id: MyString
+  male: 1
+  female: 1
+  totpop: 1
+  tot16to74: 1
+  totadult: 1
+  totemploy: 1
