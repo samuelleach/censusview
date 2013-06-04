@@ -34,6 +34,7 @@ end
 
 gem 'jquery-rails'
 
+gem 'pg'
 gem 'mongoid'
 gem 'resque'
 gem 'rabl'

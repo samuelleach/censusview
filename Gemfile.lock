@@ -97,6 +97,7 @@ GEM
     nokogiri (1.5.9)
     oj (2.0.14)
     origin (1.1.0)
+    pg (0.15.1)
     polyglot (0.3.3)
     pry (0.9.12.1)
       coderay (~> 1.0.5)
@@ -199,6 +200,7 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri
   oj
+  pg
   rabl
   rails (= 3.2.13)
   resque
