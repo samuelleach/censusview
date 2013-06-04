@@ -1,4 +1,6 @@
 Censusview::Application.routes.draw do
+  get "site/index"
+
   resources :census_counts
 
   root :to => 'census_counts#index'
