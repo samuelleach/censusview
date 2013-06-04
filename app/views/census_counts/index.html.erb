@@ -1,0 +1,35 @@
+<h1>Listing census_counts</h1>
+
+<table>
+  <tr>
+    <th>Area</th>
+    <th>Male</th>
+    <th>Female</th>
+    <th>Totpop</th>
+    <th>Tot16to74</th>
+    <th>Totadult</th>
+    <th>Totemploy</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @census_counts.each do |census_count| %>
+  <tr>
+    <td><%= census_count.area_id %></td>
+    <td><%= census_count.male %></td>
+    <td><%= census_count.female %></td>
+    <td><%= census_count.totpop %></td>
+    <td><%= census_count.tot16to74 %></td>
+    <td><%= census_count.totadult %></td>
+    <td><%= census_count.totemploy %></td>
+    <td><%= link_to 'Show', census_count %></td>
+    <td><%= link_to 'Edit', edit_census_count_path(census_count) %></td>
+    <td><%= link_to 'Destroy', census_count, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Census count', new_census_count_path %>

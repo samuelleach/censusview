@@ -1,0 +1,45 @@
+<%= form_for(@census_count) do |f| %>
+  <% if @census_count.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@census_count.errors.count, "error") %> prohibited this census_count from being saved:</h2>
+
+      <ul>
+      <% @census_count.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :area_id %><br />
+    <%= f.text_field :area_id %>
+  </div>
+  <div class="field">
+    <%= f.label :male %><br />
+    <%= f.number_field :male %>
+  </div>
+  <div class="field">
+    <%= f.label :female %><br />
+    <%= f.number_field :female %>
+  </div>
+  <div class="field">
+    <%= f.label :totpop %><br />
+    <%= f.number_field :totpop %>
+  </div>
+  <div class="field">
+    <%= f.label :tot16to74 %><br />
+    <%= f.number_field :tot16to74 %>
+  </div>
+  <div class="field">
+    <%= f.label :totadult %><br />
+    <%= f.number_field :totadult %>
+  </div>
+  <div class="field">
+    <%= f.label :totemploy %><br />
+    <%= f.number_field :totemploy %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
