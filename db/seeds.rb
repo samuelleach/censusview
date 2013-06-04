@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+counts = CensusCounts.create({area_id: 'E05000353', totpop: 20, male: 10, female: 10})
+counts = CensusCounts.create({area_id: 'E05000357', totpop: 25, male: 12, female: 13})
