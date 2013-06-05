@@ -23,6 +23,15 @@ function click(d) {
       .style("stroke-width", 1.5 / k + "px");
 }
 
+function mouseOver(d) {
+  sidebarSel
+        .text(d.properties.WD11NM);
+}
+function mouseOut() {
+  sidebarSel
+        .text('');
+}
+
 function centre_and_bound(geojson_object) {
   projection
       .scale(1)
@@ -52,11 +61,15 @@ var path = d3.geo.path()
     .projection(projection)
     .pointRadius(2);
 
+var sidebarSel = d3.select("#sidebar");
+
 var svg = d3.select("#map").append("svg")
     .attr("width", width)
     .attr("height", height);
 
 var g = svg.append("g");
+
+
 
 // var zoom = d3.behavior.zoom()
 //     .on("zoom",function() {
@@ -75,7 +88,6 @@ queue()
     .defer(d3.json, "/data/uk.json")
     .defer(d3.json, "/data/ukwards.topo.json")
     .await(ready);
-
 
 function ready(error, uk, ward) {
   var subunits = topojson.feature(uk, uk.objects.subunits);
@@ -100,5 +112,7 @@ function ready(error, uk, ward) {
     .attr("class", "wards")
     .attr("id", function(d) {return d.id;})
     .attr("d", path)
-    .on("click", click);
+    .on("click", click)
+    .on("mouseover", mouseOver)
+    .on("mouseout", mouseOut);
 }
