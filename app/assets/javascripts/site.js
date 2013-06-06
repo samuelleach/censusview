@@ -5,7 +5,7 @@ function click(d) {
     var centroid = path.centroid(d);
     x = centroid[0];
     y = centroid[1];
-    k = 20; // Zoom factor
+    k = 10; // Zoom factor
     centered = d;
   } else {
     x = width / 2;
@@ -24,8 +24,10 @@ function click(d) {
 }
 
 function mouseOver(d) {
+  console.log(d);
   sidebarSel
-        .text(d.properties.WD11NM);
+        // .text(d.properties.WD11NM);
+        .text(d.properties.AreaName + ' ' + d.properties.PostArea);
 }
 function mouseOut() {
   sidebarSel
@@ -83,17 +85,20 @@ var g = svg.append("g");
 
 var layerUK = g.append("g");
 var layerWard = g.append("g");
+var layerPostalArea = g.append("g");
 
 queue()
     .defer(d3.json, "/data/uk.json")
-    .defer(d3.json, "/data/ukwards.topo.json")
+    // .defer(d3.json, "/data/ukwards.topo.json")
+    .defer(d3.json, "/data/PostalArea.topo.json")
     .await(ready);
 
-function ready(error, uk, ward) {
+function ready(error, uk, postalarea) {
   var subunits = topojson.feature(uk, uk.objects.subunits);
-  var wards = topojson.feature(ward, ward.objects.ukwards);
+  // var wards = topojson.feature(ward, ward.objects.ukwards);
+  var postalareas = topojson.feature(postalarea, postalarea.objects.PostalArea);
 
-  centre_and_bound(wards);
+  centre_and_bound(postalareas);
 
   layerUK.selectAll(".subunit")
       .data(subunits.features)
@@ -106,10 +111,20 @@ function ready(error, uk, ward) {
       .attr("class", "subunit-boundary")
       .attr("d", path);
 
-  layerWard.selectAll(".wards")
-    .data(wards.features)
+  // layerWard.selectAll(".wards")
+  //   .data(wards.features)
+  //   .enter().append("path")
+  //   .attr("class", "wards")
+  //   .attr("id", function(d) {return d.id;})
+  //   .attr("d", path)
+  //   .on("click", click)
+  //   .on("mouseover", mouseOver)
+  //   .on("mouseout", mouseOut);
+
+  layerPostalArea.selectAll(".postalareas")
+    .data(postalareas.features)
     .enter().append("path")
-    .attr("class", "wards")
+    .attr("class", "postalareas")
     .attr("id", function(d) {return d.id;})
     .attr("d", path)
     .on("click", click)

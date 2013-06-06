@@ -45,6 +45,20 @@ body {
   fill: red;
 }
 
+.postalareas {
+  fill: white;
+  stroke: black;
+  stroke-width: 0.05px;
+}
+
+.postalareas.active {
+  fill: orange;
+}
+
+.postalareas.selected {
+  fill: red;
+}
+
 .motorways {
   fill: none;
   stroke: steelblue;
