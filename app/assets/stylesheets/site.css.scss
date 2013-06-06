@@ -46,9 +46,9 @@ body {
 }
 
 .postalareas {
-  fill: white;
-  stroke: black;
+  stroke: #fff;
   stroke-width: 0.05px;
+  stroke-linejoin: round;
 }
 
 .postalareas.active {

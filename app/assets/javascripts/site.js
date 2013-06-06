@@ -51,6 +51,10 @@ var width = 788,
     height = 600,
     centered;
 
+var color = d3.scale.threshold()
+    .domain([.15, .30, .45, .60, .75])
+    .range(["#f2f0f7", "#dadaeb", "#bcbddc", "#9e9ac8", "#756bb1", "#54278f"]);
+
 var projection = d3.geo.albers()
     .center([0, 52.5])
     .rotate([4.4, 0])
@@ -98,15 +102,26 @@ function ready(error, uk, postalarea, census) {
   // var wards = topojson.feature(ward, ward.objects.ukwards);
   var postalareas = topojson.feature(postalarea, postalarea.objects.PostalArea);
 
+
   console.log(census);
+
+  // Processing of census to get unemployment rate
+  var rateById = {};
+  census.forEach(function(d) { rateById[d.PostArea] = (+d.Tot16to74 -d.TotEmploy) / (+d.Tot16to74); });
+  console.log(rateById);
+  console.log(rateById['AB']);
+  console.log(color(rateById['AB']));
+  console.log(color(undefined));
+
 
   centre_and_bound(postalareas);
 
-  layerUK.selectAll(".subunit")
-      .data(subunits.features)
-    .enter().append("path")
-      .attr("class", function(d) { return "subunit " + d.id; })
-      .attr("d", path);
+  // layerUK.selectAll(".subunit")
+  //     .data(subunits.features)
+  //   .enter().append("path")
+  //     .attr("class", function(d) { return "subunit " +d.id; })
+  //     .attr("d", path);
+
 
   layerUK.append("path")
       .datum(topojson.mesh(uk, uk.objects.subunits))
@@ -128,6 +143,7 @@ function ready(error, uk, postalarea, census) {
     .enter().append("path")
     .attr("class", "postalareas")
     .attr("id", function(d) {return d.id;})
+    .style("fill", function(d) { return myColor = rateById[d.id] ? color(rateById[d.id]) : "#FFFFFF"; })
     .attr("d", path)
     .on("click", click)
     .on("mouseover", mouseOver)
