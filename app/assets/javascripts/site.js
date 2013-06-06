@@ -24,10 +24,9 @@ function click(d) {
 }
 
 function mouseOver(d) {
-  console.log(d);
   sidebarSel
         // .text(d.properties.WD11NM);
-        .text(d.properties.AreaName + ' ' + d.properties.PostArea);
+        .text(d.properties.AreaName + ' ' + d.id);
 }
 function mouseOut() {
   sidebarSel
@@ -91,12 +90,15 @@ queue()
     .defer(d3.json, "/data/uk.json")
     // .defer(d3.json, "/data/ukwards.topo.json")
     .defer(d3.json, "/data/PostalArea.topo.json")
+    .defer(d3.csv, "/data/census_by_postcodearea.csv")
     .await(ready);
 
-function ready(error, uk, postalarea) {
+function ready(error, uk, postalarea, census) {
   var subunits = topojson.feature(uk, uk.objects.subunits);
   // var wards = topojson.feature(ward, ward.objects.ukwards);
   var postalareas = topojson.feature(postalarea, postalarea.objects.PostalArea);
+
+  console.log(census);
 
   centre_and_bound(postalareas);
 
