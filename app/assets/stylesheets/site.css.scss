@@ -4,7 +4,7 @@
 
 body {
   fill: none;
-  pointer-events: all;
+  // pointer-events: all;
 }
 
 .subunit.SCT { fill: #ddc; }
@@ -45,9 +45,15 @@ body {
   fill: red;
 }
 
+.postalarea-boundary {
+  stroke: #fff;
+  stroke-width: 0.15px;
+  stroke-linejoin: round;
+}
+
 .postalareas {
   stroke: #fff;
-  stroke-width: 0.05px;
+  stroke-width: 0.03px;
   stroke-linejoin: round;
 }
 
@@ -57,6 +63,12 @@ body {
 
 .postalareas.selected {
   fill: red;
+}
+
+.postaldistricts {
+  fill: lightgrey;
+  stroke: #fff;
+  stroke-width: 0.05px;
 }
 
 .motorways {

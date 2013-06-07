@@ -26,7 +26,8 @@ function click(d) {
 function mouseOver(d) {
   sidebarSel
         // .text(d.properties.WD11NM);
-        .text(d.properties.AreaName + ' ' + d.id);
+        // .text(d.properties.AreaName + ' ' + d.id);
+        .text(d.id);
 }
 function mouseOut() {
   sidebarSel
@@ -87,20 +88,26 @@ var g = svg.append("g");
 // svg.call(zoom);
 
 var layerUK = g.append("g");
-var layerWard = g.append("g");
+// var layerWard = g.append("g");
+var layerPostalDistrict = g.append("g");
 var layerPostalArea = g.append("g");
+
+
+
 
 queue()
     .defer(d3.json, "/data/uk.json")
     // .defer(d3.json, "/data/ukwards.topo.json")
     .defer(d3.json, "/data/PostalArea.topo.json")
+    .defer(d3.json, "/data/PostalDistrict.topo.json")
     .defer(d3.csv, "/data/census_by_postcodearea.csv")
     .await(ready);
 
-function ready(error, uk, postalarea, census) {
+function ready(error, uk, postalarea, postaldistrict, census) {
   var subunits = topojson.feature(uk, uk.objects.subunits);
   // var wards = topojson.feature(ward, ward.objects.ukwards);
   var postalareas = topojson.feature(postalarea, postalarea.objects.PostalArea);
+  var postaldistricts = topojson.feature(postaldistrict, postaldistrict.objects.PostalDistrict);
 
 
   console.log(census);
@@ -138,14 +145,32 @@ function ready(error, uk, postalarea, census) {
   //   .on("mouseover", mouseOver)
   //   .on("mouseout", mouseOut);
 
-  layerPostalArea.selectAll(".postalareas")
-    .data(postalareas.features)
+  // layerPostalArea.selectAll(".postalareas")
+  //   .data(postalareas.features)
+  //   .enter().append("path")
+  //   .attr("class", "postalareas")
+  //   .attr("id", function(d) {return d.id;})
+  //   .style("fill", function(d) { return myColor = rateById[d.id] ? color(rateById[d.id]) : "#FFFFFF"; })
+  //   .attr("d", path)
+  //   .on("click", click)
+  //   .on("mouseover", mouseOver)
+  //   .on("mouseout", mouseOut);
+
+  console.log(postalareas);
+
+  layerPostalDistrict.selectAll(".postdistricts")
+    .data(postaldistricts.features)
     .enter().append("path")
-    .attr("class", "postalareas")
+    .attr("class", "postaldistricts")
     .attr("id", function(d) {return d.id;})
-    .style("fill", function(d) { return myColor = rateById[d.id] ? color(rateById[d.id]) : "#FFFFFF"; })
     .attr("d", path)
     .on("click", click)
     .on("mouseover", mouseOver)
     .on("mouseout", mouseOut);
+
+  layerPostalArea.append("path")
+      .datum(topojson.mesh(postalarea, postalarea.objects.PostalArea))
+      .attr("class", "postalarea-boundary")
+      .attr("d", path);
+
 }
