@@ -100,25 +100,23 @@ queue()
     // .defer(d3.json, "/data/ukwards.topo.json")
     .defer(d3.json, "/data/PostalArea.topo.json")
     .defer(d3.json, "/data/PostalDistrict.topo.json")
-    .defer(d3.csv, "/data/census_by_postcodearea.csv")
+    // .defer(d3.csv, "/data/census_by_postcodearea.csv")
     .await(ready);
 
-function ready(error, uk, postalarea, postaldistrict, census) {
+function ready(error, uk, postalarea, postaldistrict) {
   var subunits = topojson.feature(uk, uk.objects.subunits);
   // var wards = topojson.feature(ward, ward.objects.ukwards);
   var postalareas = topojson.feature(postalarea, postalarea.objects.PostalArea);
   var postaldistricts = topojson.feature(postaldistrict, postaldistrict.objects.PostalDistrict);
 
 
-  console.log(census);
-
   // Processing of census to get unemployment rate
-  var rateById = {};
-  census.forEach(function(d) { rateById[d.PostArea] = (+d.Tot16to74 -d.TotEmploy) / (+d.Tot16to74); });
-  console.log(rateById);
-  console.log(rateById['AB']);
-  console.log(color(rateById['AB']));
-  console.log(color(undefined));
+  // var rateById = {};
+  // census.forEach(function(d) { rateById[d.PostArea] = (+d.Tot16to74 -d.TotEmploy) / (+d.Tot16to74); });
+  // console.log(rateById);
+  // console.log(rateById['AB']);
+  // console.log(color(rateById['AB']));
+  // console.log(color(undefined));
 
 
   centre_and_bound(postalareas);
