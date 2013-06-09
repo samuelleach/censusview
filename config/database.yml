@@ -15,7 +15,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: postgres
+  database: censusview_development
   pool: 5
   username: leach
   password:
@@ -41,9 +41,9 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: censusview_test
+  database: censusview_development
   pool: 5
-  username: censusview
+  username: leach
   password:
 
 production:

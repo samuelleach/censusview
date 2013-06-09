@@ -11,44 +11,200 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609092156) do
-
-  create_table "albums", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "articles", :force => true do |t|
-    t.string   "title"
-    t.text     "arxiv_url"
-    t.date     "publication_date"
-    t.integer  "num_citations"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
-  create_table "articles_authors", :id => false, :force => true do |t|
-    t.integer "article_id"
-    t.integer "author_id"
-  end
-
-  add_index "articles_authors", ["article_id", "author_id"], :name => "index_articles_authors_on_article_id_and_author_id", :unique => true
-
-  create_table "authors", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130609105213) do
 
   create_table "census_counts", :force => true do |t|
-    t.string   "area_id"
-    t.integer  "male"
-    t.integer  "female"
-    t.integer  "totpop"
-    t.integer  "tot16to74"
-    t.integer  "totadult"
-    t.integer  "totemploy"
+    t.string   "PostArea"
+    t.integer  "TotPop"
+    t.integer  "TotPop01"
+    t.integer  "TotAdult"
+    t.integer  "Tot16to74"
+    t.integer  "TotEmploy"
+    t.integer  "TTWBasePop"
+    t.integer  "HhdPop"
+    t.integer  "CommPop"
+    t.integer  "Dwelling"
+    t.integer  "HhdSpace"
+    t.integer  "HhdOcc"
+    t.integer  "HhdEmpty"
+    t.integer  "Male"
+    t.integer  "Female"
+    t.integer  "Age0to4"
+    t.integer  "Age5to7"
+    t.integer  "Age8to9"
+    t.integer  "Age10to14"
+    t.integer  "Age15"
+    t.integer  "Age16to17"
+    t.integer  "Age18to19"
+    t.integer  "Age20to24"
+    t.integer  "Age25to29"
+    t.integer  "Age30to44"
+    t.integer  "Age45to59"
+    t.integer  "Age60to64"
+    t.integer  "Age65to74"
+    t.integer  "Age75to84"
+    t.integer  "Age85to89"
+    t.integer  "Age90plus"
+    t.integer  "Single"
+    t.integer  "Married"
+    t.integer  "SameSex"
+    t.integer  "Separated"
+    t.integer  "Divorced"
+    t.integer  "Widowed"
+    t.integer  "White"
+    t.integer  "MixedEth"
+    t.integer  "Indian"
+    t.integer  "Pakistani"
+    t.integer  "Bangladesh"
+    t.integer  "Chinese"
+    t.integer  "OtherAsian"
+    t.integer  "BlAfrican"
+    t.integer  "BlCarib"
+    t.integer  "BlOther"
+    t.integer  "OtherEth"
+    t.integer  "CoBEngland"
+    t.integer  "CoBWales"
+    t.integer  "CoBScot"
+    t.integer  "CoBNI"
+    t.integer  "CoBROI"
+    t.integer  "CoBOldEU"
+    t.integer  "CoBNewEU"
+    t.integer  "CoBOther"
+    t.integer  "PassNone"
+    t.integer  "PassUK"
+    t.integer  "PassROI"
+    t.integer  "PassOldEU"
+    t.integer  "PassNewEU"
+    t.integer  "PassAfrica"
+    t.integer  "PassMEA"
+    t.integer  "PassNAm"
+    t.integer  "PassCAm"
+    t.integer  "PassSAm"
+    t.integer  "PassOcean"
+    t.integer  "Catholic"
+    t.integer  "OtChrist"
+    t.integer  "TotChrist"
+    t.integer  "Buddhist"
+    t.integer  "Hindu"
+    t.integer  "Jewish"
+    t.integer  "Muslim"
+    t.integer  "Sikh"
+    t.integer  "OtRel"
+    t.integer  "TotOtRel"
+    t.integer  "NoReligion"
+    t.integer  "ReligionNS"
+    t.integer  "VGHealth"
+    t.integer  "Ghealth"
+    t.integer  "FairHealth"
+    t.integer  "BadHealth"
+    t.integer  "VBadHealth"
+    t.integer  "EAEmpPT"
+    t.integer  "EAEmpFT"
+    t.integer  "EASelfEmp"
+    t.integer  "EAUnemp"
+    t.integer  "EAFuTiSt"
+    t.integer  "EIRetired"
+    t.integer  "EIFuTiSt"
+    t.integer  "EIHome"
+    t.integer  "EISickDis"
+    t.integer  "EIOther"
+    t.integer  "Agricult"
+    t.integer  "Extractive"
+    t.integer  "Manufact"
+    t.integer  "EnergySup"
+    t.integer  "WaterSup"
+    t.integer  "Construct"
+    t.integer  "Retail"
+    t.integer  "Transport"
+    t.integer  "AccommFood"
+    t.integer  "InfoComms"
+    t.integer  "FinServ"
+    t.integer  "PropServ"
+    t.integer  "ProfTech"
+    t.integer  "Administ"
+    t.integer  "PubAdDef"
+    t.integer  "Education"
+    t.integer  "Health"
+    t.integer  "OtherInd"
+    t.integer  "EmpAndMgr"
+    t.integer  "HighProf"
+    t.integer  "LowProf"
+    t.integer  "Intermed"
+    t.integer  "SmEmpSeEm"
+    t.integer  "LowSuper"
+    t.integer  "SemiRout"
+    t.integer  "Routine"
+    t.integer  "NeverWork"
+    t.integer  "LTUnemp"
+    t.integer  "NotClass"
+    t.integer  "NoQuals"
+    t.integer  "Qual1"
+    t.integer  "Qual2"
+    t.integer  "QualApp"
+    t.integer  "Qual3"
+    t.integer  "Qual4"
+    t.integer  "QualOther"
+    t.integer  "Stud16to17"
+    t.integer  "Stud18plus"
+    t.integer  "FTSEmploy"
+    t.integer  "FTSUnemp"
+    t.integer  "FTSEcInact"
+    t.integer  "TTWHome"
+    t.integer  "TTWTrain"
+    t.integer  "TTWTube"
+    t.integer  "TTWBus"
+    t.integer  "TTWMBike"
+    t.integer  "TTWCar"
+    t.integer  "TTWCarPass"
+    t.integer  "TTWTaxi"
+    t.integer  "TTWBike"
+    t.integer  "TTWFoot"
+    t.integer  "TTWOther"
+    t.integer  "Pens1pers"
+    t.integer  "Other1pers"
+    t.integer  "PensFamily"
+    t.integer  "MaNoKid"
+    t.integer  "MaDepKid"
+    t.integer  "MaNDepKid"
+    t.integer  "CoNoKid"
+    t.integer  "CoDepKid"
+    t.integer  "CoNDepKid"
+    t.integer  "LPDepKid"
+    t.integer  "LPNDepKid"
+    t.integer  "OthDepKid"
+    t.integer  "AllStudent"
+    t.integer  "OtherPens"
+    t.integer  "OtherHhd"
+    t.integer  "DwUnshared"
+    t.integer  "DwShared"
+    t.integer  "Detached"
+    t.integer  "SemiDetach"
+    t.integer  "Terrace"
+    t.integer  "FlatPur"
+    t.integer  "FlatConSha"
+    t.integer  "CommBuild"
+    t.integer  "CaravMob"
+    t.integer  "OwnOut"
+    t.integer  "OwnMort"
+    t.integer  "OwnShare"
+    t.integer  "SocCouncil"
+    t.integer  "SocOther"
+    t.integer  "PrivRentL"
+    t.integer  "PrivRentO"
+    t.integer  "RentFree"
+    t.integer  "NoCars"
+    t.integer  "Car1"
+    t.integer  "Car2"
+    t.integer  "Car3"
+    t.integer  "Car4plus"
+    t.integer  "Pers1Hhd"
+    t.integer  "Pers2Hhd"
+    t.integer  "Pers3Hhd"
+    t.integer  "Pers4Hhd"
+    t.integer  "Pers5Hhd"
+    t.integer  "Pers6Hhd"
+    t.integer  "Pers7Hhd"
+    t.integer  "Pers8PHhd"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -60,77 +216,6 @@ ActiveRecord::Schema.define(:version => 20130609092156) do
     t.string   "Units"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "clients", :id => false, :force => true do |t|
-    t.integer "id",                  :null => false
-    t.string  "name", :limit => 256
-  end
-
-  create_table "destinations", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "trip_id"
-  end
-
-  create_table "dog", :force => true do |t|
-    t.string "name",  :limit => 256
-    t.text   "photo"
-    t.string "breed", :limit => 256
-  end
-
-  create_table "moons", :force => true do |t|
-    t.string   "name"
-    t.integer  "planet_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "moons", ["planet_id"], :name => "index_moons_on_planet_id"
-
-  create_table "photos", :force => true do |t|
-    t.string   "name"
-    t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "album_id"
-  end
-
-  create_table "planets", :force => true do |t|
-    t.string   "name"
-    t.text     "image"
-    t.float    "orbit"
-    t.float    "mass"
-    t.float    "diameter"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "stories", :force => true do |t|
-    t.text     "title"
-    t.text     "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "todo", :force => true do |t|
-    t.string "item", :limit => 256
-  end
-
-  create_table "trips", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "video", :force => true do |t|
-    t.string "title",       :limit => 256
-    t.text   "description"
-    t.text   "url"
-    t.string "genre",       :limit => 256
   end
 
 end
