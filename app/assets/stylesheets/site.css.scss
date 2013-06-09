@@ -2,9 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
 body {
   fill: none;
-  // pointer-events: all;
+  @include noselect;
+}
+
+#sidebar {
+  @include noselect;
 }
 
 .subunit.SCT { fill: #ddc; }
@@ -24,6 +37,10 @@ body {
   stroke-linejoin: round;
 }
 
+.subunit-boundary.IRL {
+  stroke: #aaa;
+}
+
 .county-boundary {
   fill: none;
   stroke: steelblue;
@@ -31,23 +48,9 @@ body {
   stroke-width: 2.5px;
 }
 
-.wards {
-  fill: white;
-  stroke: black;
-  stroke-width: 0.05px;
-}
-
-.wards.active {
-  fill: orange;
-}
-
-.wards.selected {
-  fill: red;
-}
-
 .postalarea-boundary {
   stroke: #fff;
-  stroke-width: 0.15px;
+  stroke-width: 0.2px;
   stroke-linejoin: round;
 }
 
@@ -66,51 +69,31 @@ body {
 }
 
 .postaldistricts {
-  fill: lightgrey;
   stroke: #fff;
   stroke-width: 0.05px;
 }
 
-.motorways {
-  fill: none;
-  stroke: steelblue;
-  stroke-linejoin: round;
-  stroke-width: 2.5px;
+.caption {
+  fill: black;
+  font-weight: bold;
 }
 
-.primary_roads {
-  fill: none;
-  stroke: red;
-  stroke-linejoin: round;
-  stroke-width: 2.5px;
+.key {
+  @include noselect;
+  fill: black;
 }
 
-.subunit-boundary.IRL {
-  stroke: #aaa;
+.key path {
+  display: none;
 }
 
-.subunit-label {
-  fill: #777;
-  fill-opacity: .5;
-  font-size: 20px;
-  font-weight: 300;
-  text-anchor: middle;
-}
-
-.place,
-.place-label {
-  fill: #444;
+.key line {
+  stroke: #000;
+  shape-rendering: crispEdges;
 }
 
 text {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 10px;
   pointer-events: none;
-}
-
-.brush .extent {
-  stroke: #000;
-  stroke-width: 1.5px;
-  fill: #000;
-  fill-opacity: 0.3;
 }

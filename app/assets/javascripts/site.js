@@ -25,8 +25,6 @@ function click(d) {
 
 function mouseOver(d) {
   sidebarSel
-        // .text(d.properties.WD11NM);
-        // .text(d.properties.AreaName + ' ' + d.id);
         .text(d.id);
 }
 function mouseOut() {
@@ -34,7 +32,7 @@ function mouseOut() {
         .text('');
 }
 
-function centre_and_bound(geojson_object) {
+function centre_and_bound_projection(geojson_object) {
   projection
       .scale(1)
       .translate([0, 0]);
@@ -53,8 +51,12 @@ var width = 788,
     centered;
 
 var color = d3.scale.threshold()
-    .domain([.15, .30, .45, .60, .75])
+    .domain([.1, .2, .3, .4, .5, .6])
     .range(["#f2f0f7", "#dadaeb", "#bcbddc", "#9e9ac8", "#756bb1", "#54278f"]);
+    // .range(colorbrewer.RdBu[6]);
+// var color = d3.scale.linear()
+//     .domain([0.0,.75])
+//     .range(["#ffffff", "#54278f"]);
 
 var projection = d3.geo.albers()
     .center([0, 52.5])
@@ -74,101 +76,86 @@ var svg = d3.select("#map").append("svg")
     .attr("height", height);
 
 var g = svg.append("g");
-
-
-
-// var zoom = d3.behavior.zoom()
-//     .on("zoom",function() {
-//         g.attr("transform","translate("+ 
-//             d3.event.translate.join(",")+")scale("+d3.event.scale+")");
-//         g.selectAll("path")  
-//             .attr("d", path.projection(projection)); 
-// });
-
-// svg.call(zoom);
-
-var layerUK = g.append("g");
-// var layerWard = g.append("g");
 var layerPostalDistrict = g.append("g");
 var layerPostalArea = g.append("g");
-
-
-
+var layerUK = g.append("g");
 
 queue()
     .defer(d3.json, "/data/uk.json")
-    // .defer(d3.json, "/data/ukwards.topo.json")
     .defer(d3.json, "/data/PostalArea.topo.json")
     .defer(d3.json, "/data/PostalDistrict.topo.json")
-    // .defer(d3.csv, "/data/census_by_postcodearea.csv")
+    .defer(d3.csv, "/data/census_by_postcodedistrict.csv")
     .await(ready);
 
-function ready(error, uk, postalarea, postaldistrict) {
+function ready(error, uk, postalarea, postaldistrict, census) {
   var subunits = topojson.feature(uk, uk.objects.subunits);
-  // var wards = topojson.feature(ward, ward.objects.ukwards);
   var postalareas = topojson.feature(postalarea, postalarea.objects.PostalArea);
   var postaldistricts = topojson.feature(postaldistrict, postaldistrict.objects.PostalDistrict);
 
-
   // Processing of census to get unemployment rate
-  // var rateById = {};
-  // census.forEach(function(d) { rateById[d.PostArea] = (+d.Tot16to74 -d.TotEmploy) / (+d.Tot16to74); });
-  // console.log(rateById);
-  // console.log(rateById['AB']);
-  // console.log(color(rateById['AB']));
-  // console.log(color(undefined));
+  var rateById = {};
+  census.forEach(function(d) { rateById[d.PostArea] = (+d.Tot16to74 -d.TotEmploy) / (+d.Tot16to74); });
 
-
-  centre_and_bound(postalareas);
-
-  // layerUK.selectAll(".subunit")
-  //     .data(subunits.features)
-  //   .enter().append("path")
-  //     .attr("class", function(d) { return "subunit " +d.id; })
-  //     .attr("d", path);
-
+  centre_and_bound_projection(postalareas);
 
   layerUK.append("path")
       .datum(topojson.mesh(uk, uk.objects.subunits))
       .attr("class", "subunit-boundary")
       .attr("d", path);
 
-  // layerWard.selectAll(".wards")
-  //   .data(wards.features)
-  //   .enter().append("path")
-  //   .attr("class", "wards")
-  //   .attr("id", function(d) {return d.id;})
-  //   .attr("d", path)
-  //   .on("click", click)
-  //   .on("mouseover", mouseOver)
-  //   .on("mouseout", mouseOut);
-
-  // layerPostalArea.selectAll(".postalareas")
-  //   .data(postalareas.features)
-  //   .enter().append("path")
-  //   .attr("class", "postalareas")
-  //   .attr("id", function(d) {return d.id;})
-  //   .style("fill", function(d) { return myColor = rateById[d.id] ? color(rateById[d.id]) : "#FFFFFF"; })
-  //   .attr("d", path)
-  //   .on("click", click)
-  //   .on("mouseover", mouseOver)
-  //   .on("mouseout", mouseOut);
-
-  console.log(postalareas);
-
   layerPostalDistrict.selectAll(".postdistricts")
-    .data(postaldistricts.features)
-    .enter().append("path")
-    .attr("class", "postaldistricts")
-    .attr("id", function(d) {return d.id;})
-    .attr("d", path)
-    .on("click", click)
-    .on("mouseover", mouseOver)
-    .on("mouseout", mouseOut);
+      .data(postaldistricts.features)
+      .enter().append("path")
+      .attr("class", "postaldistricts")
+      .attr("id", function(d) {return d.id;})
+      .style("fill", function(d) { return myColor = rateById[d.id] ? color(rateById[d.id]) : "#FFFFFF"; })
+      .attr("d", path)
+      .on("click", click)
+      .on("mouseover", mouseOver)
+      .on("mouseout", mouseOut);
 
   layerPostalArea.append("path")
-      .datum(topojson.mesh(postalarea, postalarea.objects.PostalArea))
+      .datum(topojson.mesh(postalarea, postalarea.objects.PostalArea, function(a, b) { return a !== b; }))
       .attr("class", "postalarea-boundary")
       .attr("d", path);
+
+  // Legend
+  var formatNumber = d3.format("r");
+  var x = d3.scale.linear()
+    .domain([0, 1])
+    .range([0, 350]); // Sets the screen width of the legend
+
+  var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .tickSize(13)
+    .tickValues(color.domain())
+    .tickFormat(function(d) {return formatNumber(d); });
+
+  var key = svg.append("g")
+      .attr("class", "key")
+      .attr("transform", "translate(550,40)");
+
+  key.selectAll("rect")
+    .data(color.range().map(function(d, i) {
+      return {
+        x0: i ? x(color.domain()[i - 1]) : x.range()[0],
+        x1: i < color.domain().length ? x(color.domain()[i]) : x.range()[1],
+        z: d
+      };
+    }))
+  .enter().append("rect")
+    .classed("colorbar",true)
+    .attr("height", 8)
+    .attr("x", function(d) { return d.x0; })
+    .attr("width", function(d) { return d.x1 - d.x0; })
+    .style("fill", function(d) { return d.z; })
+    .style("stroke-width","0.5px")
+    .style("stroke","black");
+
+  key.call(xAxis).append("text")
+    .attr("class", "caption")
+    .attr("y", -6)
+    .text("Unemployment rate");
 
 }
