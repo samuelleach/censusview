@@ -1,0 +1,191 @@
+VariableID	VarLabel	LongLabel	Units	DenomVarID	VarType	EWSource	NISource	ScoSource
+1	TotPop	Usual Resident Population	People	1	Base	KS101EW0001	KS101NI0001	TBA
+2	TotPop01	Usual Resident Population 2001 Best Fit	People	1	Base	N/A	N/A	TBA
+3	TotAdult	Usual Resident Population Sixteen and over	People	1	Base	KS103EW0001	KS103NI0001	TBA
+4	Tot16to74	Usual Resident Population Sixteen between 16 and 74	People	1	Base	KS601EW0001	KS601NI0001	TBA
+5	TotEmploy	Usual Resident Population in Employment	People	1	Base	KS605EW0001	KS605NI0001	TBA
+6	TTWBasePop	Usual Resident Population in Employment (excludes students in Northern Ireland)	People	1	Base	KS605EW0001	KS701NI0001	TBA
+7	HhdPop	Usual Resident population who lives in a household	People	1	Base	KS101EW0004	KS101NI0004	TBA
+8	CommPop	Usual Resident population who lives in a communal establishment	People	1	Base	KS101EW0005	KS101NI0005	TBA
+9	Dwelling	Dwelling Unit	Dwelling	8	Base	KS401EW0001	KS401NI0001	TBA
+10	HhdSpace	Available Household Spaces	Household	9	Base	KS401EW0005	KS401NI0004	TBA
+11	HhdOcc	Household spaces with at least one usual resident	Household	9	Base	KS401EW0006	KS401NI0005	TBA
+12	HhdEmpty	Household spaces with no usual residents	Household	9	Base	KS401EW0007	KS401NI0006	TBA
+13	Male	Male	People	1	Gender	KS101EW0002	KS101NI0002	TBA
+14	Female	Female	People	1	Gender	KS101EW0003	KS101NI0003	TBA
+15	Age0to4	Age 0 to 4	People	1	Age	KS102EW0002	KS102NI0002	TBA
+16	Age5to7	Age 5 to 7	People	1	Age	KS102EW0003	KS102NI0003	TBA
+17	Age8to9	Age 8 to 9	People	1	Age	KS102EW0004	KS102NI0004	TBA
+18	Age10to14	Age 10 to 14	People	1	Age	KS102EW0005	KS102NI0005	TBA
+19	Age15	Age 15	People	1	Age	KS102EW0006	KS102NI0006	TBA
+20	Age16to17	Age 16 to 17	People	1	Age	KS102EW0007	KS102NI0007	TBA
+21	Age18to19	Age 18 to 19	People	1	Age	KS102EW0008	KS102NI0008	TBA
+22	Age20to24	Age 20 to 24	People	1	Age	KS102EW0009	KS102NI0009	TBA
+23	Age25to29	Age 25 to 29	People	1	Age	KS102EW0010	KS102NI0010	TBA
+24	Age30to44	Age 30 to 44	People	1	Age	KS102EW0011	KS102NI0011	TBA
+25	Age45to59	Age 45 to 59	People	1	Age	KS102EW0012	KS102NI0012	TBA
+26	Age60to64	Age 60 to 64	People	1	Age	KS102EW0013	KS102NI0013	TBA
+27	Age65to74	Age 65 to 74	People	1	Age	KS102EW0014	KS102NI0014	TBA
+28	Age75to84	Age 75 to 84	People	1	Age	KS102EW0015	KS102NI0015	TBA
+29	Age85to89	Age 85 to 89	People	1	Age	KS102EW0016	KS102NI0016	TBA
+30	Age90plus	Age 90 and over	People	1	Age	KS102EW0017	KS102NI0017	TBA
+31	Single	Single (never married or never registered a same-sex civil partnership)	People	3	Marital Status	KS103EW0002	KS103NI0002	TBA
+32	Married	Married	People	3	Marital Status	KS103EW0003	KS103NI0003	TBA
+33	SameSex	In a registered same-sex civil partnership	People	3	Marital Status	KS103EW0004	KS103NI0004	TBA
+34	Separated	Separated (but still legally married or still legally in a same-sex civil partnership	People	3	Marital Status	KS103EW0005	KS103NI0005	TBA
+35	Divorced	Divorced or formerly in a same-sex civil partnership which is now legally dissolved	People	3	Marital Status	KS103EW0006	KS103NI0006	TBA
+36	Widowed	Widowed or surviving partner from a same-sex civil partnership	People	3	Marital Status	KS103EW0007	KS103NI0007	TBA
+37	White	White including White British White Irish and traveller	People	1	Ethnic	KS201EW0002 + KS201EW0003 + KS201EW0004 +KS201EW0005	KS201NI0002 + KS201NI0004	TBA
+38	MixedEth	Mixed/multiple ethnic group	People	1	Ethnic	KS201EW0006 + KS201EW0007 +KS201EW0008 + KS201EW0009	KS201NI0012	TBA
+39	Indian	Asian/Asian British: Indian	People	1	Ethnic	KS201EW0010	KS201NI0005	TBA
+40	Pakistani	Asian/Asian British: Pakistani	People	1	Ethnic	KS201EW0011	KS201NI0006	TBA
+41	Bangladesh	Asian/Asian British: Bangladeshi	People	1	Ethnic	KS201EW0012	KS201NI0007	TBA
+42	Chinese	Asian/Asian British: Chinese	People	1	Ethnic	KS201EW0013	KS201NI0003	TBA
+43	OtherAsian	Asian/Asian British: Other Asian	People	1	Ethnic	KS201EW0014	KS201NI0008	TBA
+44	BlAfrican	Black/African/Caribbean/Black British: African	People	1	Ethnic	KS201EW0015	KS201NI0010	TBA
+45	BlCarib	Black/African/Caribbean/Black British: Caribbean	People	1	Ethnic	KS201EW0016	KS201NI0009	TBA
+46	BlOther	Black/African/Caribbean/Black British: Other Black	People	1	Ethnic	KS201EW0017	KS201NI0011	TBA
+47	OtherEth	Other ethnic group and Arab	People	1	Ethnic	KS201EW0018 + KS201EW0019	KS201NI0013	TBA
+48	CoBEngland	Country of Birth England	People	1	Birthplace	KS204EW0002	KS204NI0003	TBA
+49	CoBWales	Country of Birth Wales	People	1	Birthplace	KS204EW0003	KS204NI0005	TBA
+50	CoBScot	Country of Birth Scotland	People	1	Birthplace	KS204EW0004	KS204NI0004	TBA
+51	CoBNI	Country of Birth Northern Ireland	People	1	Birthplace	KS204EW0005	KS204NI0002	TBA
+52	CoBROI	Country of Birth Ireland	People	1	Birthplace	KS204EW0007	KS204NI0006	TBA
+53	CoBOldEU	Country of Birth EU Member countries in March 2001	People	1	Birthplace	KS204EW0008	KS204NI0007	TBA
+54	CoBNewEU	Country of Birth Accession countries April 2001 to March 2011	People	1	Birthplace	KS204EW0009	KS204NI0008	TBA
+55	CoBOther	Country of Birth Other countries including UK not otherwise specified	People	1	Birthplace	KS204EW0010 + KS204EW0006	KS204NI0009	TBA
+56	PassNone	No passport	People	1	Passport	KS205EW0002	KS205NI0002	TBA
+57	PassUK	Passports held include United Kingdom including Overseas Territories	People	1	Passport	KS205EW0003 + KS205EW0013	KS205NI0003	TBA
+58	PassROI	Passports held include Republic of Ireland	People	1	Passport	KS205EW0004	KS205NI0004	TBA
+59	PassEU	Passports held include Other Europe: EU countries	People	1	Passport	KS205EW0005	KS205NI0005	TBA
+60	PassNonEU	Passports held include Other Europe: Non EU countries	People	1	Passport	KS205EW0006	KS205NI0006	TBA
+61	PassAfrica	Passports held include Africa	People	1	Passport	KS205EW0007	KS205NI0007	TBA
+62	PassMEA	Passports held include Middle East and Asia	People	1	Passport	KS205EW0008	KS205NI0008	TBA
+63	PassNAm	Passports held include North America and the Caribbean	People	1	Passport	KS205EW0009	KS205NI0009	TBA
+64	PassCAm	Passports held include Central America	People	1	Passport	KS205EW0010	KS205NI0010	TBA
+65	PassSAm	Passports held include South America	People	1	Passport	KS205EW0011	KS205NI0011	TBA
+66	PassOcean	Passports held include Antarctica and Oceania	People	1	Passport	KS205EW0012	KS205NI0012	TBA
+67	Catholic	Any Catholic including religion brought up in	People	1	Religion	N/A	KS211NI0002	TBA
+68	OtChrist	Any other Christian including religion brought up in	People	1	Religion	N/A	KS211NI0003 + KS211NI0004 + KS211NI0005 + KS211NI0006	TBA
+69	TotChrist	All Christian	People	1	Religion	KS209EW0002	KS211NI0002 + KS211NI0003 + KS211NI0004 + KS211NI0005 + KS211NI0006	TBA
+70	Buddhist	Buddhist	People	1	Religion	KS209EW0003	N/A	TBA
+71	Hindu	Hindu	People	1	Religion	KS209EW0004	N/A	TBA
+72	Jewish	Jewish	People	1	Religion	KS209EW0005	N/A	TBA
+73	Muslim	Muslim	People	1	Religion	KS209EW0006	N/A	TBA
+74	Sikh	Sikh	People	1	Religion	KS209EW0007	N/A	TBA
+75	OtRel	Other religion	People	1	Religion	KS209EW0008	N/A	TBA
+76	TotOtRel	Total non-Christian Religion	People	1	Religion	KS209EW0003 + KS209EW0004 + KS209EW0005 + KS209EW0006 + KS209EW0007 + KS209EW0008	KS211NI0007	TBA
+77	NoReligion	No religion including Atheist	People	1	Religion	KS209EW0009	KS211NI0008	TBA
+78	ReligionNS	Religion not stated	People	1	Religion	KS209EW0010	KS211NI0009	TBA
+79	VGHealth	Very good health	People	1	Health	KS301EW0008	KS301NI0008	TBA
+80	Ghealth	Good health	People	1	Health	KS301EW0009	KS301NI0009	TBA
+81	FairHealth	Fair health	People	1	Health	KS301EW0010	KS301NI0010	TBA
+82	BadHealth	Bad health	People	1	Health	KS301EW0011	KS301NI0011	TBA
+83	VBadHealth	Very bad health	People	1	Health	KS301EW0012	KS301NI0012	TBA
+84	EAEmpPT	Economically active: Employee: Part-time	People	4	Economic Activity	KS601EW0002	KS601NI0002	TBA
+85	EAEmpFT	Economically active: Employee: Full-time	People	4	Economic Activity	KS601EW0003	KS601NI0003	TBA
+86	EASelfEmp	Economically active: Self-employed	People	4	Economic Activity	KS601EW0004	KS601NI0004	TBA
+87	EAUnemp	Economically active: Unemployed	People	4	Economic Activity	KS601EW0005	KS601NI0005	TBA
+88	EAFuTiSt	Economically active: Full-time student	People	4	Economic Activity	KS601EW0006	KS601NI0006	TBA
+89	EIRetired	Economically inactive: Retired	People	4	Economic Activity	KS601EW0007	KS601NI0007	TBA
+90	EIFuTiSt	Economically inactive: Student (including full-time students)	People	4	Economic Activity	KS601EW0008	KS601NI0008	TBA
+91	EIHome	Economically inactive: Looking after home or family	People	4	Economic Activity	KS601EW0009	KS601NI0009	TBA
+92	EISickDis	Economically inactive: Long-term sick or disabled	People	4	Economic Activity	KS601EW0010	KS601NI0010	TBA
+93	EIOther	Economically inactive: Other	People	4	Economic Activity	KS601EW0011	KS601NI0011	TBA
+94	Agricult	A Agriculture, forestry and fishing	People	5	Industry	KS605EW0002	KS605NI0002	TBA
+95	Extractive	B Mining and quarrying	People	5	Industry	KS605EW0003	KS605NI0003	TBA
+96	Manufact	C Manufacturing	People	5	Industry	KS605EW0004	KS605NI0004	TBA
+97	EnergySup	D Electricity, gas, steam and air conditioning supply	People	5	Industry	KS605EW0005	KS605NI0005	TBA
+98	WaterSup	E Water supply; sewerage, waste management and remediation activities	People	5	Industry	KS605EW0006	KS605NI0006	TBA
+99	Construct	F Construction	People	5	Industry	KS605EW0007	KS605NI0007	TBA
+100	Retail	G Wholesale and retail trade; repair of motor vehicles and motor cycles	People	5	Industry	KS605EW0008	KS605NI0008	TBA
+101	Transport	H Transport and storage	People	5	Industry	KS605EW0009	KS605NI0009	TBA
+102	AccommFood	I Accommodation and food service activities	People	5	Industry	KS605EW0010	KS605NI0010	TBA
+103	InfoComms	J Information and communication	People	5	Industry	KS605EW0011	KS605NI0011	TBA
+104	FinServ	K Financial and insurance activities	People	5	Industry	KS605EW0012	KS605NI0012	TBA
+105	PropServ	L Real estate activities	People	5	Industry	KS605EW0013	KS605NI0013	TBA
+106	ProfTech	M Professional, scientific and technical activities	People	5	Industry	KS605EW0014	KS605NI0014	TBA
+107	Administ	N Administrative and support service activities	People	5	Industry	KS605EW0015	KS605NI0015	TBA
+108	PubAdDef	O Public administration and defence; compulsory social security	People	5	Industry	KS605EW0016	KS605NI0016	TBA
+109	Education	P Education	People	5	Industry	KS605EW0017	KS605NI0017	TBA
+110	Health	Q Human health and social work activities	People	5	Industry	KS605EW0018	KS605NI0018	TBA
+111	OtherInd	R S T and U Other	People	5	Industry	KS605EW0019	KS605NI0019	TBA
+112	EmpAndMgr	NSSEC 1_1 Large employers and higher managerial and administrative occupations	People	4	NSSEC Grade	KS611EW0003	KS611NI0002	TBA
+113	HighProf	NSSEC 1_2 Higher professional occupations	People	4	NSSEC Grade	KS611EW0004	KS611NI0003	TBA
+114	LowProf	NSSEC 2 Lower managerial, administrative and professional occupations	People	4	NSSEC Grade	KS611EW0005	KS611NI0004	TBA
+115	Intermed	NSSEC 3 Intermediate occupations	People	4	NSSEC Grade	KS611EW0006	KS611NI0005	TBA
+116	SmEmpSeEm	NSSEC 4 Small employers and own account workers	People	4	NSSEC Grade	KS611EW0007	KS611NI0006	TBA
+117	LowSuper	NSSEC 5 Lower supervisory and technical occupations	People	4	NSSEC Grade	KS611EW0008	KS611NI0007	TBA
+118	SemiRout	NSSEC 6 Semi-routine occupations	People	4	NSSEC Grade	KS611EW0009	KS611NI0008	TBA
+119	Routine	NSSEC 7 Routine occupations	People	4	NSSEC Grade	KS611EW0010	KS611NI0009	TBA
+120	NeverWork	NSSEC L14_1 Never worked	People	4	NSSEC Grade	KS611EW0012	KS611NI0010	TBA
+121	LTUnemp	NSSEC L14_2 Long-term unemployed	People	4	NSSEC Grade	KS611EW0013	KS611NI0011	TBA
+122	NotClass	NSSEC Not classified	People	4	NSSEC Grade	KS611EW0014	KS611NI0012	TBA
+123	NoQuals	No qualifications	People	3	Qualifications	KS501EW0002	KS501NI0002	TBA
+124	Qual1	Highest level of qualification: Level 1 qualifications	People	3	Qualifications	KS501EW0003	KS501NI0003	TBA
+125	Qual2	Highest level of qualification: Level 2 qualifications	People	3	Qualifications	KS501EW0004	KS501NI0004	TBA
+126	QualApp	Highest level of qualification: Apprenticeship	People	3	Qualifications	KS501EW0005	KS501NI0005	TBA
+127	Qual3	Highest level of qualification: Level 3 qualifications	People	3	Qualifications	KS501EW0006	KS501NI0006	TBA
+128	Qual4	Highest level of qualification: Level 4 qualifications and above	People	3	Qualifications	KS501EW0007	KS501NI0007	TBA
+129	QualOther	Highest level of qualification: Other qualifications	People	3	Qualifications	KS501EW0008	KS501NI0008	TBA
+130	Stud16to17	Schoolchildren and full-time students: Age 16 to 17	People	1	Students	KS501EW0009	KS501NI0009	TBA
+131	Stud18plus	Schoolchildren and full-time students: Age 18 and over	People	1	Students	KS501EW0010	KS501NI0010	TBA
+132	FTSEmploy	Full-time students: Age 18 to 74: Economically active: In employment	People	4	Students	KS501EW0011	KS501NI0011	TBA
+133	FTSUnemp	Full-time students: Age 18 to 74: Economically active: Unemployed	People	4	Students	KS501EW0012	KS501NI0012	TBA
+134	FTSEcInact	Full-time students: Age 18 to 74: Economically inactive	People	4	Students	KS501EW0013	KS501NI0013	TBA
+135	TTWHome	Work mainly at or from home	People	6	Travel To Work	QS701EW0002	KS701NI0002	TBA
+136	TTWTrain	Train	People	6	Travel To Work	QS701EW0003	KS701NI0003	TBA
+137	TTWTube	Underground metro light rail tram	People	6	Travel To Work	QS701EW0004	N/A	TBA
+138	TTWBus	Bus minibus or coach	People	6	Travel To Work	QS701EW0005	KS701NI0004	TBA
+139	TTWMBike	Motorcycle, scooter or moped	People	6	Travel To Work	QS701EW0006	KS701NI0005	TBA
+140	TTWCar	Driving a car or van	People	6	Travel To Work	QS701EW0007	KS701NI0006	TBA
+141	TTWCarPass	Passenger in a car or van including car share	People	6	Travel To Work	QS701EW0008	KS701NI0007 + KS701NI0008	TBA
+142	TTWTaxi	Taxi	People	6	Travel To Work	QS701EW0009	KS701NI0009	TBA
+143	TTWBike	Bicycle	People	6	Travel To Work	QS701EW0010	KS701NI0010	TBA
+144	TTWFoot	On foot	People	6	Travel To Work	QS701EW0011	KS701NI0011	TBA
+145	TTWOther	Other method of travel to work	People	6	Travel To Work	QS701EW0012	KS701NI0012	TBA
+146	Pens1pers	One person household: Aged 65 and over	Household	11	Household Type	KS105EW0002	KS105NI0002	TBA
+147	Other1pers	One person household: Other	Household	11	Household Type	KS105EW0003	KS105NI0003	TBA
+148	PensFamily	One family only: All aged 65 and over	Household	11	Household Type	KS105EW0004	KS105NI0004	TBA
+149	MaNoKid	One family only: Married or same-sex civil partnership couple: No children	Household	11	Household Type	KS105EW0005	KS105NI0005	TBA
+150	MaDepKid	One family only: Married or same-sex civil partnership couple: Dependent children	Household	11	Household Type	KS105EW0006	KS105NI0006	TBA
+151	MaNDepKid	One family only: Married or same-sex civil partnership couple: All children non-dependent	Household	11	Household Type	KS105EW0007	KS105NI0007	TBA
+152	CoNoKid	One family only: Cohabiting couple: No children	Household	11	Household Type	KS105EW0008	KS105NI0008	TBA
+153	CoDepKid	One family only: Cohabiting couple: Dependent children	Household	11	Household Type	KS105EW0009	KS105NI0009	TBA
+154	CoNDepKid	One family only: Cohabiting couple: All children non-dependent	Household	11	Household Type	KS105EW0010	KS105NI0010	TBA
+155	LPDepKid	One family only: Lone parent: Dependent children	Household	11	Household Type	KS105EW0011	KS105NI0011	TBA
+156	LPNDepKid	One family only: Lone parent: All children non-dependent	Household	11	Household Type	KS105EW0012	KS105NI0012	TBA
+157	OthDepKid	Other household types: With dependent children	Household	11	Household Type	KS105EW0013	KS105NI0013	TBA
+158	AllStudent	Other household types: All full-time students	Household	11	Household Type	KS105EW0014	KS105NI0014	TBA
+159	OtherPens	Other household types: All aged 65 and over	Household	11	Household Type	KS105EW0015	KS105NI0015	TBA
+160	OtherHhd	Other household types: Other	Household	11	Household Type	KS105EW0016	KS105NI0016	TBA
+161	DwUnshared	Unshared dwelling	Dwelling	9	Dwellings	KS401EW0002	KS401NI0002	TBA
+162	DwShared	Shared dwelling: Two household spaces or more	Dwelling	9	Dwellings	KS401EW0003 + KS401EW0004	KS401NI0003	TBA
+163	Detached	Whole house or bungalow: Detached	Household	10	House Type	KS401EW0008	KS401NI0007	TBA
+164	SemiDetach	Whole house or bungalow: Semi-detached	Household	10	House Type	KS401EW0009	KS401NI0008	TBA
+165	Terrace	Whole house or bungalow: Terraced (including end-terrace)	Household	10	House Type	KS401EW0010	KS401NI0009	TBA
+166	FlatPur	Flat, maisonette or apartment: Purpose-built block of flats or tenement	Household	10	House Type	KS401EW0011	KS401NI0010	TBA
+167	FlatConSha	Flat, maisonette or apartment: Part of a converted or shared house (including bed-sits)	Household	10	House Type	KS401EW0012	KS401NI0011	TBA
+168	CommBuild	Flat, maisonette or apartment: In a commercial building	Household	10	House Type	KS401EW0013	KS401NI0012	TBA
+169	CaravMob	Caravan or other mobile or temporary structure	Household	10	House Type	KS401EW0014	KS401NI0013	TBA
+170	OwnOut	Owned: Owned outright	Household	11	House Tenure	KS402EW0002	KS402NI0002	TBA
+171	OwnMort	Owned: Owned with a mortgage or loan	Household	11	House Tenure	KS402EW0003	KS402NI0003	TBA
+172	OwnShare	Shared ownership (part owned and part rented)	Household	11	House Tenure	KS402EW0004	KS402NI0004	TBA
+173	SocCouncil	Social rented: Rented from council (Local Authority)	Household	11	House Tenure	KS402EW0005	KS402NI0005	TBA
+174	SocOther	Social rented: Other	Household	11	House Tenure	KS402EW0006	KS402NI0006	TBA
+175	PrivRentL	Private rented: Private landlord or letting agency	Household	11	House Tenure	KS402EW0007	KS402NI0007	TBA
+176	PrivRentO	Private rented: Other	Household	11	House Tenure	KS402EW0008	KS402NI0008	TBA
+177	RentFree	Living rent free	Household	11	House Tenure	KS402EW0009	KS402NI0009	TBA
+178	NoCars	No cars or vans in household	Household	11	Cars	KS404EW0002	KS405NI0002	TBA
+179	Car1	1 car or van in household	Household	11	Cars	KS404EW0003	KS405NI0003	TBA
+180	Car2	2 cars or vans in household	Household	11	Cars	KS404EW0004	KS405NI0004	TBA
+181	Car3	3 cars or vans in household	Household	11	Cars	KS404EW0005	KS405NI0005	TBA
+182	Car4plus	4 or more cars or vans in household	Household	11	Cars	KS404EW0006	KS405NI0006	TBA
+183	Pers1Hhd	1 person in household	Household	11	Household Size	QS406EW0002	KS403NI0002	TBA
+184	Pers2Hhd	2 people in household	Household	11	Household Size	QS406EW0003	KS403NI0003	TBA
+185	Pers3Hhd	3 people in household	Household	11	Household Size	QS406EW0004	KS403NI0004	TBA
+186	Pers4Hhd	4 people in household	Household	11	Household Size	QS406EW0005	KS403NI0005	TBA
+187	Pers5Hhd	5 people in household	Household	11	Household Size	QS406EW0006	KS403NI0006	TBA
+188	Pers6Hhd	6 people in household	Household	11	Household Size	QS406EW0007	KS403NI0007	TBA
+189	Pers7Hhd	7 people in household	Household	11	Household Size	QS406EW0008	KS403NI0008	TBA
+190	Pers8PHhd	8 or more people in household	Household	11	Household Size	QS406EW0009	KS403NI0009	TBA
