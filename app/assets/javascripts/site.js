@@ -5,7 +5,7 @@ function click(d) {
     var centroid = path.centroid(d);
     x = centroid[0];
     y = centroid[1];
-    k = 10; // Zoom factor
+    k = 15; // Zoom factor
     centered = d;
   } else {
     x = width / 2;
@@ -25,7 +25,7 @@ function click(d) {
 
 function mouseOver(d) {
   sidebarSel
-        .text(d.id);
+        .text(d.properties.Sprawl + ' ' + d.id);
 }
 function mouseOut() {
   sidebarSel
@@ -51,12 +51,11 @@ var width = 788,
     centered;
 
 var color = d3.scale.threshold()
-    .domain([.1, .2, .3, .4, .5, .6])
-    .range(["#f2f0f7", "#dadaeb", "#bcbddc", "#9e9ac8", "#756bb1", "#54278f"]);
-    // .range(colorbrewer.RdBu[6]);
-// var color = d3.scale.linear()
-//     .domain([0.0,.75])
-//     .range(["#ffffff", "#54278f"]);
+    // .domain([.1, .2, .3, .4, .5, .6])
+    // .range(["#f2f0f7", "#dadaeb", "#bcbddc", "#9e9ac8", "#756bb1", "#54278f"]);
+    .domain([100, 500, 1000, 2000, 5000, 10000])
+    // .range(["#fff7ec", "#fee8c8", "#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#b30000", "#7f0000"]);
+    .range(colorbrewer.YlOrRd[7]);
 
 var projection = d3.geo.albers()
     .center([0, 52.5])
@@ -83,18 +82,26 @@ var layerUK = g.append("g");
 queue()
     .defer(d3.json, "/data/uk.json")
     .defer(d3.json, "/data/PostalArea.topo.json")
-    .defer(d3.json, "/data/PostalDistrict.topo.json")
+    .defer(d3.json, "/data/PostalDistrict_v2.topo.json")
     .defer(d3.json, "/census_counts.json")
     .await(ready);
 
 function ready(error, uk, postalarea, postaldistrict, census) {
   var subunits = topojson.feature(uk, uk.objects.subunits);
   var postalareas = topojson.feature(postalarea, postalarea.objects.PostalArea);
-  var postaldistricts = topojson.feature(postaldistrict, postaldistrict.objects.PostalDistrict);
+  var postaldistricts = topojson.feature(postaldistrict, postaldistrict.objects.PostalDistrict_v2);
 
   // Processing of census to get unemployment rate
   var rateById = {};
   census.forEach(function(d) { rateById[d.PostArea] = (+d.Tot16to74 -d.TotEmploy) / (+d.Tot16to74); });
+
+  var areaById = {};
+  postaldistricts.features.forEach(function(d) { areaById[d.id] = d.properties.AREA; });
+
+  var popDensityById = {};
+  // 0.0000003861003 is conversion factor from sqaure metres to square miles
+  census.forEach(function(d) { popDensityById[d.PostArea] = +d.TotPop / areaById[d.PostArea] / 0.0000003861003; });
+  console.log(popDensityById);
 
   centre_and_bound_projection(postalareas);
 
@@ -108,7 +115,9 @@ function ready(error, uk, postalarea, postaldistrict, census) {
       .enter().append("path")
       .attr("class", "postaldistricts")
       .attr("id", function(d) {return d.id;})
-      .style("fill", function(d) { return myColor = rateById[d.id] ? color(rateById[d.id]) : "#FFFFFF"; })
+      // .style("fill", function(d) { return myColor = rateById[d.id] ? color(rateById[d.id]) : "#FFFFFF"; })
+      .style("fill", function(d) { return myColor = popDensityById[d.id] ? color(popDensityById[d.id]) : "#FFF"; })
+      // .style("fill", function(d) { return myColor = color(popDensityById[d.id]); })
       .attr("d", path)
       .on("click", click)
       .on("mouseover", mouseOver)
@@ -120,21 +129,25 @@ function ready(error, uk, postalarea, postaldistrict, census) {
       .attr("d", path);
 
   // Legend
-  var formatNumber = d3.format("r");
+  var formatNumber = d3.format(",r");
   var x = d3.scale.linear()
-    .domain([0, 1])
-    .range([0, 350]); // Sets the screen width of the legend
+    // .domain([0, 1])
+    .domain([0, 11000])
+    .range([0, 500]); // Sets the screen width of the legend
 
   var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
     .tickSize(13)
     .tickValues(color.domain())
-    .tickFormat(function(d) {return formatNumber(d); });
+    // .tickFormat(function(d) {return formatNumber(d); });
+    .tickFormat(function(d) { return d >= 100 ? formatNumber(d) : null; });
 
   var key = svg.append("g")
       .attr("class", "key")
-      .attr("transform", "translate(550,40)");
+      // .attr("transform", "translate(550,40)");
+      .attr("transform", "translate(250,40)");
+
 
   key.selectAll("rect")
     .data(color.range().map(function(d, i) {
@@ -156,6 +169,8 @@ function ready(error, uk, postalarea, postaldistrict, census) {
   key.call(xAxis).append("text")
     .attr("class", "caption")
     .attr("y", -6)
-    .text("Unemployment rate");
+    // .text("Unemployment rate");
+    .text("Population per square mile");
+
 
 }
