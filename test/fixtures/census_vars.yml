@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  VariableID: 1
+  VarLabel: MyString
+  LongLabel: MyString
+  Units: MyString
+
+two:
+  VariableID: 1
+  VarLabel: MyString
+  LongLabel: MyString
+  Units: MyString
