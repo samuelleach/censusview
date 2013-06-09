@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130604124638) do
+ActiveRecord::Schema.define(:version => 20130609092156) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(:version => 20130604124638) do
     t.integer  "tot16to74"
     t.integer  "totadult"
     t.integer  "totemploy"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "census_vars", :force => true do |t|
+    t.integer  "VariableID"
+    t.string   "VarLabel"
+    t.string   "LongLabel"
+    t.string   "Units"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
