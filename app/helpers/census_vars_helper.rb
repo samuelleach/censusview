@@ -1,0 +1,2 @@
+module CensusVarsHelper
+end
