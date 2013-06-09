@@ -6,7 +6,7 @@ class CensusCountsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @census_counts }
+      format.json # { render json: @census_counts }
     end
   end
 
