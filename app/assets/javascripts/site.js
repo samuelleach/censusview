@@ -84,7 +84,7 @@ queue()
     .defer(d3.json, "/data/uk.json")
     .defer(d3.json, "/data/PostalArea.topo.json")
     .defer(d3.json, "/data/PostalDistrict.topo.json")
-    .defer(d3.csv, "/data/census_by_postcodedistrict.csv")
+    .defer(d3.json, "/census_counts.json")
     .await(ready);
 
 function ready(error, uk, postalarea, postaldistrict, census) {
