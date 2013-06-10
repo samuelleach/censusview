@@ -24,8 +24,11 @@ function click(d) {
 }
 
 function mouseOver(d) {
+  data = popDensityById[d.id];
+  data_string = data ? d3.round(data,0) : 'No data';
+
   sidebarSel
-        .text(d.properties.Sprawl + ' ' + d.id);
+        .text(d.properties.Sprawl + ' ' + d.id + ' ('+ data_string +')');
 }
 function mouseOut() {
   sidebarSel
@@ -55,7 +58,7 @@ var color = d3.scale.threshold()
     // .range(["#f2f0f7", "#dadaeb", "#bcbddc", "#9e9ac8", "#756bb1", "#54278f"]);
     .domain([100, 500, 1000, 2000, 5000, 10000])
     // .range(["#fff7ec", "#fee8c8", "#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#b30000", "#7f0000"]);
-    .range(colorbrewer.YlOrRd[7]);
+    .range(colorbrewer.YlGnBu[7]);
 
 var projection = d3.geo.albers()
     .center([0, 52.5])
@@ -98,10 +101,9 @@ function ready(error, uk, postalarea, postaldistrict, census) {
   var areaById = {};
   postaldistricts.features.forEach(function(d) { areaById[d.id] = d.properties.AREA; });
 
-  var popDensityById = {};
+  popDensityById = {};
   // 0.0000003861003 is conversion factor from sqaure metres to square miles
   census.forEach(function(d) { popDensityById[d.PostArea] = +d.TotPop / areaById[d.PostArea] / 0.0000003861003; });
-  console.log(popDensityById);
 
   centre_and_bound_projection(postalareas);
 
@@ -169,7 +171,6 @@ function ready(error, uk, postalarea, postaldistrict, census) {
   key.call(xAxis).append("text")
     .attr("class", "caption")
     .attr("y", -6)
-    // .text("Unemployment rate");
     .text("Population per square mile");
 
 
