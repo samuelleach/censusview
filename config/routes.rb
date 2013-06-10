@@ -6,8 +6,10 @@ Censusview::Application.routes.draw do
 
   resources :census_counts
 
-  root :to => 'site#index'
+  # root :to => 'site#index'
+  # root :to => 'census_counts#show'
 
+  match "/" => redirect("/census_counts/TotPop")
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

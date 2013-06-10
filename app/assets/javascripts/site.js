@@ -83,7 +83,7 @@ queue()
     .defer(d3.json, "/data/uk.json")
     .defer(d3.json, "/data/PostalArea.topo.json")
     .defer(d3.json, "/data/PostalDistrict_v2.topo.json")
-    .defer(d3.json, "/census_counts.json")
+    .defer(d3.json, "/census_counts/" + $('body').data('type') + ".json")
     .await(ready);
 
 function ready(error, uk, postalarea, postaldistrict, census) {
@@ -92,15 +92,15 @@ function ready(error, uk, postalarea, postaldistrict, census) {
   var postaldistricts = topojson.feature(postaldistrict, postaldistrict.objects.PostalDistrict_v2);
 
   // Processing of census to get unemployment rate
-  var rateById = {};
-  census.forEach(function(d) { rateById[d.PostArea] = (+d.Tot16to74 -d.TotEmploy) / (+d.Tot16to74); });
+  // var rateById = {};
+  // census.forEach(function(d) { rateById[d.PostArea] = (+d.Tot16to74 -d.TotEmploy) / (+d.Tot16to74); });
 
   areaById = {};
   // 0.0000003861003 is conversion factor from sqaure metres to square miles
   postaldistricts.features.forEach(function(d) { areaById[d.id] = d.properties.AREA * 0.0000003861003; });
 
   popDensityById = {};
-  census.forEach(function(d) { popDensityById[d.PostArea] = +d.TotPop / areaById[d.PostArea]; });
+  census.forEach(function(d) { popDensityById[d.PostArea] = +d.count / areaById[d.PostArea]; });
 
   centre_and_bound_projection(postalareas);
 

@@ -11,11 +11,16 @@ class CensusCountsController < ApplicationController
 
   # GET /census_counts/TotPop.json
   def show
+    # @census_count = CensusCount.find(params[:id])
     @census_counts = CensusCount.all
     @census_var = params[:id]
+    # @test = CensusCount.pluck(:id)
+
+    # @census_var = params[:id]
 
     respond_to do |format|
       format.json
+      format.html
     end
   end
 
