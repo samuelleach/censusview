@@ -25,10 +25,10 @@ function click(d) {
 
 function mouseOver(d) {
   data = popDensityById[d.id];
-  data_string = data ? d3.round(data,0) : 'No data';
+  data_string = data ? 'density = ' + d3.round(data,0) + ', total = ' + d3.round(data * areaById[d.id])  : 'No data';
 
   sidebarSel
-        .text(d.properties.Sprawl + ' ' + d.id + ' ('+ data_string +')');
+        .html(d.properties.Sprawl + ' ' + d.id + '</br>' + ' ('+ data_string +')');
 }
 function mouseOut() {
   sidebarSel
@@ -54,10 +54,7 @@ var width = 788,
     centered;
 
 var color = d3.scale.threshold()
-    // .domain([.1, .2, .3, .4, .5, .6])
-    // .range(["#f2f0f7", "#dadaeb", "#bcbddc", "#9e9ac8", "#756bb1", "#54278f"]);
     .domain([100, 500, 1000, 2000, 5000, 10000])
-    // .range(["#fff7ec", "#fee8c8", "#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#b30000", "#7f0000"]);
     .range(colorbrewer.YlGnBu[7]);
 
 var projection = d3.geo.albers()
@@ -98,12 +95,12 @@ function ready(error, uk, postalarea, postaldistrict, census) {
   var rateById = {};
   census.forEach(function(d) { rateById[d.PostArea] = (+d.Tot16to74 -d.TotEmploy) / (+d.Tot16to74); });
 
-  var areaById = {};
-  postaldistricts.features.forEach(function(d) { areaById[d.id] = d.properties.AREA; });
+  areaById = {};
+  // 0.0000003861003 is conversion factor from sqaure metres to square miles
+  postaldistricts.features.forEach(function(d) { areaById[d.id] = d.properties.AREA * 0.0000003861003; });
 
   popDensityById = {};
-  // 0.0000003861003 is conversion factor from sqaure metres to square miles
-  census.forEach(function(d) { popDensityById[d.PostArea] = +d.TotPop / areaById[d.PostArea] / 0.0000003861003; });
+  census.forEach(function(d) { popDensityById[d.PostArea] = +d.TotPop / areaById[d.PostArea]; });
 
   centre_and_bound_projection(postalareas);
 
@@ -133,8 +130,7 @@ function ready(error, uk, postalarea, postaldistrict, census) {
   // Legend
   var formatNumber = d3.format(",r");
   var x = d3.scale.linear()
-    // .domain([0, 1])
-    .domain([0, 11000])
+    .domain([0, 11000])  // Need to automate this
     .range([0, 500]); // Sets the screen width of the legend
 
   var xAxis = d3.svg.axis()
@@ -142,13 +138,11 @@ function ready(error, uk, postalarea, postaldistrict, census) {
     .orient("bottom")
     .tickSize(13)
     .tickValues(color.domain())
-    // .tickFormat(function(d) {return formatNumber(d); });
     .tickFormat(function(d) { return d >= 100 ? formatNumber(d) : null; });
 
   var key = svg.append("g")
       .attr("class", "key")
-      // .attr("transform", "translate(550,40)");
-      .attr("transform", "translate(250,40)");
+      .attr("transform", "translate(250,40)"); //Need to auto adjust this
 
 
   key.selectAll("rect")
