@@ -5,19 +5,17 @@ class CensusCountsController < ApplicationController
     @census_counts = CensusCount.all
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json # { render json: @census_counts }
+      format.json
     end
   end
 
-  # GET /census_counts/1
-  # GET /census_counts/1.json
+  # GET /census_counts/TotPop.json
   def show
-    @census_count = CensusCount.find(params[:id])
+    @census_counts = CensusCount.all
+    @census_var = params[:id]
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @census_count }
+      format.json
     end
   end
 
