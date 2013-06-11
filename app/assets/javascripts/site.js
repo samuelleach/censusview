@@ -101,7 +101,7 @@ function ready(error, uk, postalarea, postaldistrict, census, census_vars) {
   postaldistricts.features.forEach(function(d) { areaById[d.id] = d.properties.AREA * 0.0000003861003; });
 
   popDensityById = {};
-  census.forEach(function(d) { popDensityById[d.PostArea] = +d.count / areaById[d.PostArea]; });
+  census.forEach(function(d) { popDensityById[d.postarea] = +d.count / areaById[d.postarea]; });
 
   centre_and_bound_projection(postalareas);
 
