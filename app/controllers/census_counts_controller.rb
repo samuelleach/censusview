@@ -13,6 +13,9 @@ class CensusCountsController < ApplicationController
   def show
     # @census_count = CensusCount.find(params[:id])
     @census_counts = CensusCount.all
+    # @test = CensusCount.select(:PostArea).all
+    # puts @test
+
     @census_var = params[:id]
     # @test = CensusCount.pluck(:id)
 
