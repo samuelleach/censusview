@@ -1,3 +1,3 @@
 collection @census_vars
 
-attributes :LongLabel, :Units, :VarLabel
+attributes :longlabel, :units, :varlabel

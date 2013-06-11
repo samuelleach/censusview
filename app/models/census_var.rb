@@ -1,3 +1,3 @@
 class CensusVar < ActiveRecord::Base
-  attr_accessible :LongLabel, :Units, :VarLabel, :VariableID
+  attr_accessible :longlabel, :units, :variableid, :varlabel
 end

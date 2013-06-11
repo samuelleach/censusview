@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130611091413) do
+ActiveRecord::Schema.define(:version => 20130611093605) do
 
   create_table "census_counts", :force => true do |t|
     t.string   "postarea"
@@ -210,10 +210,10 @@ ActiveRecord::Schema.define(:version => 20130611091413) do
   end
 
   create_table "census_vars", :force => true do |t|
-    t.integer  "VariableID"
-    t.string   "VarLabel"
-    t.string   "LongLabel"
-    t.string   "Units"
+    t.integer  "variableid"
+    t.string   "varlabel"
+    t.string   "longlabel"
+    t.string   "units"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
