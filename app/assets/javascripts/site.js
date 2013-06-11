@@ -83,10 +83,11 @@ queue()
     .defer(d3.json, "/data/uk.json")
     .defer(d3.json, "/data/PostalArea.topo.json")
     .defer(d3.json, "/data/PostalDistrict_v2.topo.json")
-    .defer(d3.json, "/census_counts/" + $('body').data('type') + ".json")
+    .defer(d3.json, "/census_counts/" + $('body').data('census_var') + ".json")
+    .defer(d3.json, "/census_vars.json")
     .await(ready);
 
-function ready(error, uk, postalarea, postaldistrict, census) {
+function ready(error, uk, postalarea, postaldistrict, census, census_vars) {
   var subunits = topojson.feature(uk, uk.objects.subunits);
   var postalareas = topojson.feature(postalarea, postalarea.objects.PostalArea);
   var postaldistricts = topojson.feature(postaldistrict, postaldistrict.objects.PostalDistrict_v2);
