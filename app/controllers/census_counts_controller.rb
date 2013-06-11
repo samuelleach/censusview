@@ -12,9 +12,8 @@ class CensusCountsController < ApplicationController
   # GET /census_counts/TotPop.json
   def show
     # @census_count = CensusCount.find(params[:id])
-    @census_counts = CensusCount.all
-    # @test = CensusCount.select(:PostArea).all
-    # puts @test
+    # @census_counts = CensusCount.all
+    @census_counts = CensusCount.select([:postarea, params[:id]]).all
 
     @census_var = params[:id]
     # @test = CensusCount.pluck(:id)
