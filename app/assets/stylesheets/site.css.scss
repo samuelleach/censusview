@@ -50,13 +50,13 @@ body {
 
 .postalarea-boundary {
   stroke: #fff;
-  stroke-width: 0.12px;
+  stroke-width: 0.15px;
   stroke-linejoin: round;
 }
 
 .postalareas {
   stroke: #fff;
-  stroke-width: 0.02px;
+  stroke-width: 0.015px;
   stroke-linejoin: round;
 }
 
@@ -69,8 +69,10 @@ body {
 }
 
 .postaldistricts {
-  stroke: #fff;
+  // stroke: #fff;
   stroke-width: 0.05px;
+  stroke: #000;
+  stroke-opacity: .3;
 }
 
 .caption {
