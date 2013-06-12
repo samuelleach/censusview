@@ -25,10 +25,10 @@ function click(d) {
 
 function mouseOver(d) {
   data = popDensityById[d.id];
-  data_string = data ? 'density = ' + d3.round(data,0) + ', total = ' + d3.round(data * areaById[d.id])  : 'No data';
+  data_string = data ? '(density = ' + d3.round(data,0) + ' per sq. mile, total = ' + d3.round(data * areaById[d.id])+')' : '';
 
   sidebarSel
-        .html(d.properties.Sprawl + ' ' + d.id + '</br>' + ' ('+ data_string +')');
+        .html(d.properties.Sprawl + ' ' + d.id + '</br>' + data_string);
 }
 function mouseOut() {
   sidebarSel
