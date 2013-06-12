@@ -1,4 +1,4 @@
 collection @census_vars
 
-attributes :longlabel, :units, :varlabel
-#attributes :longlabel, :units, :varlabel, :tokens
+#attributes :longlabel, :units, :varlabel
+attributes :longlabel, :units, :varlabel, :tokens
