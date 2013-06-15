@@ -3,6 +3,7 @@ class CreateCensusVars < ActiveRecord::Migration
     create_table :census_vars do |t|
       t.integer :variableid
       t.string :varlabel
+      t.string :vartype
       t.string :longlabel
       t.string :units
 

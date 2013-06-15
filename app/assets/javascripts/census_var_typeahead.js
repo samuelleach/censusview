@@ -7,7 +7,7 @@ $(document).ready(function() {
 	  template: [                                                                 
 	    '<a href="{{varlabel}}">',
 	    '<p class="censusvar-label">{{varlabel}}</p>',                              
-	    '<p class="censusvar-units">{{units}}</p>',                                      
+	    '<p class="censusvar-units">{{units}} ({{vartype}})</p>',                                      
 	    '<p class="censusvar-longlabel">{{longlabel}}</p>',
 	    '</a>'                         
 	  ].join(''),                                                                 

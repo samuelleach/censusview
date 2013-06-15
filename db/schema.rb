@@ -212,6 +212,7 @@ ActiveRecord::Schema.define(:version => 20130611093605) do
   create_table "census_vars", :force => true do |t|
     t.integer  "variableid"
     t.string   "varlabel"
+    t.string   "vartype"
     t.string   "longlabel"
     t.string   "units"
     t.datetime "created_at", :null => false

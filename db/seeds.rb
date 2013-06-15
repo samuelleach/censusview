@@ -13,7 +13,7 @@ puts 'Seeding Census variable names table'
 parsed_file = CSV.read("public/data/CensusVar.txt", { :col_sep => "\t", :headers=>:first_row})
 CensusVar.delete_all
 parsed_file.each do |row|
-	CensusVar.create({variableid: row[0], varlabel: row[1].downcase, longlabel: row[2], units: row[3] })
+	CensusVar.create({variableid: row[0], varlabel: row[1].downcase, longlabel: row[2], units: row[3], vartype: row[5] })
 end
 
 # Read in Census data

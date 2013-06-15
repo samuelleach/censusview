@@ -53,6 +53,12 @@ var width = 788,
     height = 600,
     centered;
 
+var svg = d3.select("#map").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var sidebarSel = d3.select("#sidebar");
+
 var color = d3.scale.threshold()
     .domain([100, 500, 1000, 2000, 5000, 10000])
     .range(colorbrewer.YlGnBu[7]);
@@ -67,12 +73,6 @@ var projection = d3.geo.albers()
 var path = d3.geo.path()
     .projection(projection)
     .pointRadius(2);
-
-var sidebarSel = d3.select("#sidebar");
-
-var svg = d3.select("#map").append("svg")
-    .attr("width", width)
-    .attr("height", height);
 
 var g = svg.append("g");
 var layerPostalDistrict = g.append("g");
