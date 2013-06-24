@@ -81,8 +81,8 @@ var layerUK = g.append("g");
 
 queue()
     .defer(d3.json, "/data/uk.json")
-    .defer(d3.json, "/data/PostalArea.topo.json")
-    .defer(d3.json, "/data/PostalDistrict_v2.topo.json")
+    .defer(d3.json, "/data/PostalArea.topojson")
+    .defer(d3.json, "/data/PostalDistrict_v2.topojson")
     .defer(d3.json, "/census_counts/" + $('body').data('census_var') + ".json")
     .await(ready);
 
